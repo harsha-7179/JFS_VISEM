@@ -1,0 +1,10 @@
+# Maven
+target/
+
+# Logs
+*.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
