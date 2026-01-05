@@ -10,10 +10,10 @@ public class MainApp {
 
         // ---------- LOGIN ----------
         System.out.print("Username: ");
-        String username = sc.next();
+        String username = sc.nextLine();
 
         System.out.print("Password: ");
-        String password = sc.next();
+        String password = sc.nextLine();
 
         if (!LoginDAO.validate(username, password)) {
             System.out.println("Invalid credentials. Access denied.");
@@ -36,17 +36,19 @@ public class MainApp {
             System.out.print("Enter your choice: ");
 
             choice = sc.nextInt();
+            sc.nextLine(); // 🔥 clear buffer
+
             switch (choice) {
 
                 case 1: // INSERT
                     System.out.print("Employee Name: ");
-                    String name = sc.nextLine();
-
+                    String name = sc.nextLine();   
                     System.out.print("Department: ");
-                    String dept = sc.next();
+                    String dept = sc.nextLine();   
 
                     System.out.print("Salary: ");
                     double salary = sc.nextDouble();
+                    sc.nextLine(); 
 
                     EmployeeDAO.insertEmployee(name, dept, salary);
                     break;
@@ -58,6 +60,7 @@ public class MainApp {
                 case 3: // READ BY ID
                     System.out.print("Enter Employee ID: ");
                     int id = sc.nextInt();
+                    sc.nextLine();
 
                     EmployeeDAO.getEmployeeById(id);
                     break;
@@ -65,15 +68,17 @@ public class MainApp {
                 case 4: // UPDATE
                     System.out.print("Enter Employee ID to Update: ");
                     int uid = sc.nextInt();
+                    sc.nextLine();
 
                     System.out.print("New Name: ");
                     String uname = sc.nextLine();
 
                     System.out.print("New Department: ");
-                    String udept = sc.next();
+                    String udept = sc.nextLine();
 
                     System.out.print("New Salary: ");
                     double usalary = sc.nextDouble();
+                    sc.nextLine();
 
                     EmployeeDAO.updateEmployee(uid, uname, udept, usalary);
                     break;
@@ -81,6 +86,7 @@ public class MainApp {
                 case 5: // DELETE
                     System.out.print("Enter Employee ID to Delete: ");
                     int did = sc.nextInt();
+                    sc.nextLine();
 
                     EmployeeDAO.deleteEmployee(did);
                     break;
